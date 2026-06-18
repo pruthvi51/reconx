@@ -1,0 +1,29 @@
+suite_name: "clinical_data_platform_migration"
+description: "Cross-dialect validation: Oracle EHR source vs Snowflake Lakehouse target"
+source_dialect: "oracle"
+target_dialect: "snowflake"
+
+tables:
+  - source_table: "ehr_patients"
+    target_table: "dim_patient"
+    primary_keys: ["patient_id"]
+    compare_columns: ["first_name", "last_name", "birth_date", "gender", "race", "zip_code"]
+    tolerances:
+      ignore_whitespace: true
+      ignore_case: false
+  - source_table: "ehr_encounters"
+    target_table: "fact_encounter"
+    primary_keys: ["encounter_id"]
+    compare_columns: ["patient_id", "encounter_class", "start_time", "stop_time", "total_claim_cost"]
+    tolerances:
+      numeric_epsilon: 0.01
+  - source_table: "ehr_conditions"
+    target_table: "fact_condition"
+    primary_keys: ["condition_id"]
+    compare_columns: ["patient_id", "condition_code", "onset_date"]
+  - source_table: "ehr_claims"
+    target_table: "fact_claims"
+    primary_keys: ["claim_id"]
+    compare_columns: ["patient_id", "total_billed", "total_paid", "claim_status"]
+    tolerances:
+      numeric_epsilon: 0.01
