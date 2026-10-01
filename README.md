@@ -28,3 +28,16 @@ High-performance, cross-engine data reconciliation engine validating source-to-t
 - **Transpilation Agility**: SQLGlot unified AST transpilation across **5 database dialects** (Postgres, Snowflake, DuckDB, Oracle, T-SQL).
 - **Overhead Reduction**: Automated schema drift detection and remediation cut manual reconciliation overhead by **85%**.
 - **Auditing Precision**: 100% precision and recall in detecting missing, phantom, and value-diverged rows.
+
+## Research Paper & Citation
+The full IEEE technical report is available at [paper/reconx_technical_report.pdf](paper/reconx_technical_report.pdf).
+
+```bibtex
+@article{gattu2026reconx,
+  author = {Gattu, Pruthvi Nag},
+  title = {ReconX: Scalable Cross-Dialect Data Reconciliation via Pushdown AST Transpilation and Distributed Bisection Verification},
+  journal = {Technical Report},
+  year = {2026},
+  url = {https://github.com/pruthvi51/reconx}
+}
+```
