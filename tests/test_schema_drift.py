@@ -1,5 +1,6 @@
 from reconx.engine.schema_drift import SchemaDriftDetector
 
+
 def test_no_drift():
     s1 = {"id": "int", "name": "varchar"}
     s2 = {"id": "int", "name": "varchar"}

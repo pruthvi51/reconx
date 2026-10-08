@@ -2,9 +2,11 @@
 PySpark Large-Scale Distributed Table Reconciliation Engine:
 Executes hash-partitioned full outer join with salted keys across 50M+ rows.
 """
-from pyspark.sql import SparkSession, DataFrame
+from typing import Any
+
+from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
-from typing import List, Dict, Any
+
 
 def create_recon_spark_session() -> SparkSession:
     return (
@@ -21,8 +23,8 @@ def reconcile_large_tables(
     source_df: DataFrame,
     target_df: DataFrame,
     key_col: str,
-    compare_cols: List[str]
-) -> Dict[str, Any]:
+    compare_cols: list[str]
+) -> dict[str, Any]:
     """
     Performs distributed reconciliation via full outer join.
     """

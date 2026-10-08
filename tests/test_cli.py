@@ -1,5 +1,7 @@
 from click.testing import CliRunner
+
 from reconx.cli import cli
+
 
 def test_cli_run():
     runner = CliRunner()

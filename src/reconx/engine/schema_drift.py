@@ -2,11 +2,12 @@
 Schema Drift Detection & Remediation Engine:
 Identifies column additions, drops, datatype mutations, and nullability changes.
 """
-from typing import Dict, List, Any
+from typing import Any
+
 
 class SchemaDriftDetector:
     @staticmethod
-    def detect_drift(source_schema: Dict[str, str], target_schema: Dict[str, str]) -> Dict[str, Any]:
+    def detect_drift(source_schema: dict[str, str], target_schema: dict[str, str]) -> dict[str, Any]:
         src_cols = set(source_schema.keys())
         tgt_cols = set(target_schema.keys())
 

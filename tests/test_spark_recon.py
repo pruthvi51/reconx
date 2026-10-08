@@ -1,5 +1,6 @@
 from reconx.spark.diff_engine import create_recon_spark_session, reconcile_large_tables
 
+
 def test_pyspark_reconciliation():
     spark = create_recon_spark_session()
     src_data = [(1, "A", 10.0), (2, "B", 20.0), (3, "C", 30.0)]

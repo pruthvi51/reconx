@@ -3,7 +3,9 @@ ReconX Fault-Injection & Bisection Benchmark:
 Evaluates detection accuracy across synthetic anomalies (type mutations, row deletions, decimal drift).
 """
 import time
+
 from reconx.engine.bisection import BisectionDiffer
+
 
 def run_benchmark():
     print("Executing ReconX fault-injection benchmark...")

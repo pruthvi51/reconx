@@ -1,5 +1,6 @@
 from reconx.benchmarks.run_fault_injection import run_benchmark
 
+
 def test_fault_injection_benchmark():
     res = run_benchmark()
     assert res["dataset_rows"] == 50000

@@ -3,10 +3,11 @@ SQLGlot Pushdown Transpiler:
 Transpiles universal verification ASTs across 5 dialects:
 Postgres, Snowflake, DuckDB, Oracle, T-SQL.
 """
-import sqlglot
+
 from sqlglot import exp
-from typing import List
+
 from reconx.models.config import Dialect
+
 
 class PushdownTranspiler:
     @staticmethod
@@ -15,7 +16,7 @@ class PushdownTranspiler:
         return expression.sql(dialect.value)
 
     @staticmethod
-    def build_checksum_query(table_name: str, columns: List[str], dialect: Dialect) -> str:
+    def build_checksum_query(table_name: str, columns: list[str], dialect: Dialect) -> str:
         select_exprs = [exp.Count(this=exp.Star()).as_("total_rows")]
         for col in columns:
             select_exprs.append(exp.Sum(this=exp.column(col)).as_(f"sum_{col}"))

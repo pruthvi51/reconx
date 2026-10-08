@@ -2,8 +2,9 @@
 Pydantic v2 schemas for Reconciliation Suites, Tolerances, and Results.
 """
 from enum import Enum
-from typing import List, Optional, Dict, Any
+
 from pydantic import BaseModel, Field
+
 
 class Dialect(str, Enum):
     POSTGRES = "postgres"
@@ -22,9 +23,9 @@ class ToleranceConfig(BaseModel):
 class TablePairConfig(BaseModel):
     source_table: str
     target_table: str
-    primary_keys: List[str]
-    compare_columns: Optional[List[str]] = None
-    exclude_columns: List[str] = Field(default_factory=list)
+    primary_keys: list[str]
+    compare_columns: list[str] | None = None
+    exclude_columns: list[str] = Field(default_factory=list)
     tolerances: ToleranceConfig = Field(default_factory=ToleranceConfig)
     use_spark_threshold: int = 1_000_000
 
@@ -33,4 +34,4 @@ class ReconSuiteConfig(BaseModel):
     description: str
     source_dialect: Dialect
     target_dialect: Dialect
-    tables: List[TablePairConfig]
+    tables: list[TablePairConfig]

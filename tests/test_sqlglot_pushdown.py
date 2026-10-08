@@ -1,6 +1,7 @@
 from reconx.engine.pushdown import PushdownTranspiler
 from reconx.models.config import Dialect
 
+
 def test_transpile_count_all_dialects():
     for dialect in [Dialect.POSTGRES, Dialect.SNOWFLAKE, Dialect.DUCKDB, Dialect.ORACLE, Dialect.TSQL]:
         sql = PushdownTranspiler.build_count_query("patients", dialect)

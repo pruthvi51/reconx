@@ -1,5 +1,6 @@
 from reconx.engine.bisection import BisectionDiffer
 
+
 def test_bisection_diff_exact_match():
     differ = BisectionDiffer(key_col="id", compare_cols=["name", "amount"])
     rows1 = [{"id": 1, "name": "A", "amount": 100}, {"id": 2, "name": "B", "amount": 200}]
