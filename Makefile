@@ -1,4 +1,4 @@
-.PHONY: help setup run-suite test demo bench paper clean
+.PHONY: help setup run-suite test demo bench clean
 
 help:
 	@echo "ReconX Automated Reconciliation Engine Commands:"
@@ -7,7 +7,6 @@ help:
 	@echo "  make test       Execute test suite (unit and property tests)"
 	@echo "  make demo       Launch Streamlit discrepancy audit dashboard"
 	@echo "  make bench      Run fault-injection benchmark & bisection study"
-	@echo "  make paper      Compile LaTeX research technical report with tectonic"
 
 setup:
 	uv pip install -e ".[dev]"
@@ -23,9 +22,6 @@ demo:
 
 bench:
 	python3 -m reconx.benchmarks.run_fault_injection
-
-paper:
-	cd paper && tectonic reconx_technical_report.tex
 
 clean:
 	rm -rf reports/ .pytest_cache target/
